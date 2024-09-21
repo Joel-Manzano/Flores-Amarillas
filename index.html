@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas para Ti</title>
+    <style>
+        /* Estilos Generales */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #fff9e5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ffcc00;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.7), 0 0 20px rgba(255, 204, 0, 0.5), 0 0 30px rgba(255, 204, 0, 0.3);
+            margin-bottom: 20px;
+            animation: neon 1.5s infinite alternate;
+        }
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 5px rgba(255, 204, 0, 0.5), 0 0 10px rgba(255, 204, 0, 0.5), 0 0 20px rgba(255, 204, 0, 0.5);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(255, 204, 0, 1), 0 0 30px rgba(255, 204, 0, 1), 0 0 40px rgba(255, 204, 0, 0.7);
+            }
+        }
+        #container {
+            text-align: center;
+        }
+        .button {
+            background-color: #ffcc00;
+            color: #333;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            background-color: #ffdd44;
+        }
+
+        /* Segunda Fase (Flores y Dedicatoria) */
+        .hidden {
+            display: none;
+        }
+        .flowers {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 1s ease;
+        }
+        .flowers img {
+            width: 150px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .flowers img:hover {
+            transform: scale(1.1);
+        }
+        .dedication {
+            font-size: 1.4em;
+            margin-top: 20px;
+            color: #333;
+            opacity: 0;
+            transition: opacity 1s ease 0.5s;
+        }
+        .visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <!-- Primera Fase: Nombre con efecto neón -->
+        <h1 id="personName">[FRANCIELI]</h1>
+        <button class="button" onclick="showFlowers()">Presiona para recibir tus flores amarillas</button>
+
+        <!-- Segunda Fase: Flores y dedicatoria -->
+        <div id="flowersSection" class="hidden">
+            <div class="flowers">
+                <img src="https://images.unsplash.com/photo-1551979217-951c7c6c53ef" alt="Flor Amarilla 1">
+                <img src="https://images.unsplash.com/photo-1518691951090-7f7b3d141d8e" alt="Flor Amarilla 2">
+                <img src="https://images.unsplash.com/photo-1611078483875-843e37788929" alt="Flor Amarilla 3">
+            </div>
+            <p class="dedication">Que estas flores amarillas llenen tu vida de alegria y muchas cosas bonitas. Se te aprecia Mucho 💛</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar las flores y la dedicatoria
+        function showFlowers() {
+            // Oculta la primera fase
+            document.querySelector('h1').style.display = 'none';
+            document.querySelector('.button').style.display = 'none';
+
+            // Muestra la segunda fase (flores y dedicatoria)
+            const flowersSection = document.getElementById('flowersSection');
+            flowersSection.classList.remove('hidden');
+
+            // Añade la animación para hacer visible las flores y dedicatoria
+            setTimeout(() => {
+                document.querySelector('.flowers').classList.add('visible');
+                document.querySelector('.dedication').classList.add('visible');
+            }, 100); // Pequeña pausa antes de iniciar la animación
+        }
+    </script>
+
+</body>
+</html>
